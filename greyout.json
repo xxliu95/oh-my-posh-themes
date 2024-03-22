@@ -1,0 +1,85 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "alignment": "left",
+      "segments": [
+        {
+          "background": "#222531",
+          "foreground": "#B0BEC5",
+          "leading_diamond": "\ue0b6",
+          "style": "diamond",
+          "template": "\uf2be  {{ .UserName }} ",
+          // "template": "\uf2be  {{ .UserName }}@{{ .HostName }} ",
+          "trailing_diamond": "\ue0b0",
+          "type": "session"
+        },
+        {
+          "background": "#2D3144",
+          "foreground": "#B0BEC5",
+          "powerline_symbol": "\ue0b0",
+          "properties": {
+            "home_icon": "\ueb06  ~",
+            "folder_icon": "…",
+            "style": "full",
+            "hide_root_location": true,
+            "folder_separator_icon": " <#B0BEC5>\uE0B1</> ",
+            "mapped_locations_enabled": "true",
+            "mapped_locations": {
+                "/Users/xxliu95/Documents": "\ueb06  Documents",
+                "/Users/xxliu95/Documents/git": "\ue5fb  git"
+            }
+          },
+          "style": "powerline",
+          // "template": " <b>{{ .Path }}</b> ",
+          "template": " {{ .Path }} ",
+          "type": "path"
+        },
+        {
+          "background": "#4f5369",
+          "foreground": "#cad6db",
+
+          "powerline_symbol": "\ue0b0",
+          "style": "powerline",
+          "template": " {{ .HEAD }} ",
+          // "template": " <b>{{ .HEAD }}</b> ",
+          "type": "git"
+        },
+        {
+          "background": "#464a5f",
+          "foreground": "#ffffff",
+          "leading_diamond": "<transparent,background>\ue0b0</>",
+          "style": "diamond",
+          "template": " {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }} ",
+          "trailing_diamond": "\ue0b4",
+          "type": "python"
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "alignment": "right",
+      "segments": [
+        {
+          "foreground_templates": [
+            "{{ if gt .Code 0 }}#f07178{{ end }}"
+          ],
+          "properties": {
+            "always_enabled": true
+          },
+          "style": "diamond",
+          "template": " {{ if gt .Code 0 }}\uf421 \uf119 {{ else }}\uf469 \u2665 {{ end }}",
+        "type": "status"
+        },
+        {
+          "style": "diamond",
+          "template": "{{ if and .Env.DOCKER_HOST}} <b>\uf308</b> {{ end }}",
+          "type": "path"
+        }
+      ],
+      "type": "prompt"
+    }
+  ],
+  "final_space": true,
+  "version": 2
+}
